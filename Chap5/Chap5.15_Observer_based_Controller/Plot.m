@@ -1,0 +1,202 @@
+close all
+[Lg,~] = size(out.ObsState.Time);
+Lg = Lg-1;
+Tend = max(out.ObsState.Time);
+
+figure(1)
+
+subplot(3,1,1)
+p=plot(out.State.Time,out.State.Data(:,1),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,1),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,1),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,1),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,1),'--');
+hh = legend('${x}_{1}$','$\tilde{x}_{1,1}$','$\tilde{x}_{2,1}$','$\tilde{x}_{3,1}$','$\tilde{x}_{4,1}$');
+set(hh,'Interpreter','latex');
+
+axes('position',[0.35 0.8 0.15 0.1])
+p=plot(out.State.Time,out.State.Data(:,1),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,1),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,1),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,1),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,1),'--');
+xlim([0,0.01*Tend]);
+
+
+subplot(3,1,2)
+p=plot(out.State.Time,out.State.Data(:,2),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,2),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,2),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,2),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,2),'--');
+hh = legend('${x}_{2}$','$\tilde{x}_{1,2}$','$\tilde{x}_{2,2}$','$\tilde{x}_{3,2}$','$\tilde{x}_{4,2}$');
+set(hh,'Interpreter','latex');
+% ylim([-5,10]);
+
+axes('position',[0.35 0.5 0.15 0.1])
+p=plot(out.State.Time,out.State.Data(:,2),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,2),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,2),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,2),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,2),'--');
+xlim([0,0.01*Tend]);
+
+
+subplot(3,1,3)
+p=plot(out.State.Time,out.State.Data(:,3),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,3),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,3),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,3),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,3),'--');
+hh = legend('${x}_{3}$','$\tilde{x}_{1,3}$','$\tilde{x}_{2,3}$','$\tilde{x}_{3,3}$','$\tilde{x}_{4,3}$');
+set(hh,'Interpreter','latex');
+
+axes('position',[0.35 0.2 0.15 0.1])
+p=plot(out.State.Time,out.State.Data(:,3),'-', ...
+       out.ObsState.Time,out.ObsState.Data(:,3),'--', ...
+       out.ObsState1.Time,out.ObsState1.Data(:,3),':', ...
+       out.ObsState2.Time,out.ObsState2.Data(:,3),'-.', ...
+       out.ObsState3.Time,out.ObsState3.Data(:,3),'--');
+xlim([0,0.01*Tend]);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(2)
+
+subplot(3,1,1)
+p=plot(out.State.Time,    out.State.Data(:,1)-out.ObsState.Data(:,1),'-', ...
+       out.ObsState1.Time,out.State.Data(:,1)-out.ObsState1.Data(:,1),':', ...
+       out.ObsState2.Time,out.State.Data(:,1)-out.ObsState2.Data(:,1),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,1)-out.ObsState3.Data(:,1),'--');
+hh = legend('${x}_{1}-\tilde{x}_{1,1}$','${x}_{1}-\tilde{x}_{2,1}$','${x}_{1}-\tilde{x}_{3,1}$','${x}_{1}-\tilde{x}_{4,1}$');
+set(hh,'Interpreter','latex');
+
+axes('position',[0.35 0.8 0.15 0.1])
+p=plot(out.State.Time,    out.State.Data(:,1)-out.ObsState.Data(:,1),'-', ...
+       out.ObsState1.Time,out.State.Data(:,1)-out.ObsState1.Data(:,1),':', ...
+       out.ObsState2.Time,out.State.Data(:,1)-out.ObsState2.Data(:,1),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,1)-out.ObsState3.Data(:,1),'--');
+xlim([0,0.04*Tend]);
+
+
+subplot(3,1,2)
+p=plot(out.State.Time,    out.State.Data(:,2)-out.ObsState.Data(:,2),'-', ...
+       out.ObsState1.Time,out.State.Data(:,2)-out.ObsState1.Data(:,2),':', ...
+       out.ObsState2.Time,out.State.Data(:,2)-out.ObsState2.Data(:,2),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,2)-out.ObsState3.Data(:,2),'--');
+hh = legend('${x}_{2}-\tilde{x}_{1,2}$','${x}_{2}-\tilde{x}_{2,2}$','${x}_{2}-\tilde{x}_{3,2}$','${x}_{2}-\tilde{x}_{4,2}$');
+set(hh,'Interpreter','latex');
+% ylim([-5,10]);
+
+axes('position',[0.35 0.5 0.15 0.1])
+p=plot(out.State.Time,    out.State.Data(:,2)-out.ObsState.Data(:,2),'-', ...
+       out.ObsState1.Time,out.State.Data(:,2)-out.ObsState1.Data(:,2),':', ...
+       out.ObsState2.Time,out.State.Data(:,2)-out.ObsState2.Data(:,2),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,2)-out.ObsState3.Data(:,2),'--');
+xlim([0,0.04*Tend]);
+
+subplot(3,1,3)
+p=plot(out.State.Time,    out.State.Data(:,3)-out.ObsState.Data(:,3),'-', ...
+       out.ObsState1.Time,out.State.Data(:,3)-out.ObsState1.Data(:,3),':', ...
+       out.ObsState2.Time,out.State.Data(:,3)-out.ObsState2.Data(:,3),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,3)-out.ObsState3.Data(:,3),'--');
+hh = legend('${x}_{3}-\tilde{x}_{1,3}$','${x}_{3}-\tilde{x}_{2,3}$','${x}_{3}-\tilde{x}_{3,3}$','${x}_{3}-\tilde{x}_{4,3}$');
+set(hh,'Interpreter','latex');
+
+axes('position',[0.35 0.15 0.15 0.1])
+p=plot(out.State.Time,    out.State.Data(:,3)-out.ObsState.Data(:,3),'-', ...
+       out.ObsState1.Time,out.State.Data(:,3)-out.ObsState1.Data(:,3),':', ...
+       out.ObsState2.Time,out.State.Data(:,3)-out.ObsState2.Data(:,3),'-.', ...
+       out.ObsState3.Time,out.State.Data(:,3)-out.ObsState3.Data(:,3),'--');
+xlim([0,0.04*Tend]);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(3) 
+subplot(2,1,1)
+p=plot(out.Measure.Time,    out.Measure.Data(:,1) ,'-');
+hh = legend('$y_{1,L_1} $');
+set(hh,'Interpreter','latex');
+
+subplot(2,1,2)
+p=plot(out.Measure.Time,    out.Measure.Data(:,2) ,'--');
+hh = legend('$y_{2,L_1} $');
+set(hh,'Interpreter','latex');
+
+ht = sgtitle('Output $y(t)$ under Observer Gain $L_1$ and Controller Gain $K$');
+set(ht,'Interpreter','latex');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(4) 
+subplot(2,1,1)
+p=plot(out.Measure1.Time,    out.Measure1.Data(:,1) ,'-');
+hh = legend('$y_{1,L_2} $');
+set(hh,'Interpreter','latex');
+
+subplot(2,1,2)
+p=plot(out.Measure1.Time,    out.Measure1.Data(:,2) ,'--');
+hh = legend('$y_{2,L_2} $');
+set(hh,'Interpreter','latex');
+ht = sgtitle('Output $y(t)$ under Observer Gain $L_2$ and Controller Gain $K$');
+set(ht,'Interpreter','latex');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(5) 
+subplot(2,1,1)
+p=plot(out.Measure2.Time,    out.Measure2.Data(:,1) ,'-');
+hh = legend('$y_{1,L_3} $');
+set(hh,'Interpreter','latex');
+
+subplot(2,1,2)
+p=plot(out.Measure2.Time,    out.Measure2.Data(:,2) ,'--');
+hh = legend('$y_{2,L_3} $');
+set(hh,'Interpreter','latex');
+ht = sgtitle('Output $y(t)$ under Observer Gain $L_3$ and Controller Gain $K$');
+set(ht,'Interpreter','latex');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(6) 
+subplot(2,1,1)
+p=plot(out.Measure3.Time,    out.Measure3.Data(:,1) ,'-');
+hh = legend('$y_{1,L_4} $');
+set(hh,'Interpreter','latex');
+
+subplot(2,1,2)
+p=plot(out.Measure3.Time,    out.Measure3.Data(:,2) ,'--');
+hh = legend('$y_{2,L_4} $');
+set(hh,'Interpreter','latex');
+ht = sgtitle('Output $y(t)$ under Observer Gain $L_4$ and Controller Gain $K$');
+set(ht,'Interpreter','latex');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure(7)
+subplot(2,2,1)
+p=plot(out.Input.Time,out.Input.Data(:,1),'-');
+hh = legend('$u_{L_1} $');
+set(hh,'Interpreter','latex');
+axis([0,Tend,-100,100]);
+
+axes('position',[0.2 0.65 0.1 0.1]);
+p=plot(out.Input.Time,out.Input.Data(:,1),'-');
+xlim([0,0.04*Tend]);
+
+subplot(2,2,2)
+p=plot(out.Input1.Time,out.Input1.Data(:,1),'-');
+hh = legend('$u_{L_2} $');
+set(hh,'Interpreter','latex');
+axis([0,Tend,-100,100]);
+axes('position',[0.65 0.65 0.1 0.1]);
+p=plot(out.Input1.Time,out.Input1.Data(:,1),'-');
+xlim([0,0.04*Tend]);
+
+subplot(2,2,3)
+p=plot(out.Input2.Time,out.Input2.Data(:,1),'-');
+hh = legend('$u_{L_3} $');
+set(hh,'Interpreter','latex');
+axis([0,Tend,-100,100]);
+axes('position',[0.2 0.15 0.1 0.1]);
+p=plot(out.Input2.Time,out.Input2.Data(:,1),'-');
+xlim([0,0.04*Tend]);
+
+subplot(2,2,4)
+p=plot(out.Input3.Time,out.Input3.Data(:,1),'-');
+hh = legend('$u_{L_4} $');
+set(hh,'Interpreter','latex');
+axis([0,Tend,-100,100]);
+axes('position',[0.65 0.15 0.1 0.1]);
+p=plot(out.Input3.Time,out.Input3.Data(:,1),'-');
+xlim([0,0.04*Tend]);
+
